@@ -1,20 +1,13 @@
+import useSWR from 'swr'
+
 import ProductList from "../components/products/ProductList";
+import {fetcher} from "./api/utility";
 
+export default function Home() {
+    const { data, error } = useSWR('/api/products-list', fetcher)
 
+    if (error) return <div>failed to load</div>
+    if (!data) return <div>loading...</div>
 
-export default function Home({products}) {
-    return <ProductList products={products}/>;
-}
-
-export async function getStaticProps() {
-    return fetch('http://localhost:3000/api/products-list')
-        .then(res => res.json())
-        .then(({products}) => {
-            return {
-                props: {
-                    products
-                },
-                revalidate: 60
-            }
-        });
+    return <ProductList products={data.products}/>;
 }
