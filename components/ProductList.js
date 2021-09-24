@@ -1,12 +1,10 @@
-// import MeetupItem from './MeetupItem';
-// import classes from './MeetupList.module.css';
-
+import classes from './ProductList.module.css';
 import Product from "./Product";
 
 function ProductList({products}) {
     return (
-        <ul>
-            {products.map((product) => (
+        <ul className={classes.list}>{
+            products.map((product) => (
                 <li key={product.id}>
                     <Product
                         name={product.name}
@@ -14,9 +12,8 @@ function ProductList({products}) {
                         image={product.image}
                     />
                 </li>
-
-            ))}
-        </ul>
+            ))
+        }</ul>
     );
 }
 

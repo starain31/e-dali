@@ -1,13 +1,12 @@
-// import Card from '../ui/Card';
-// import classes from './MeetupItem.module.css';
+import classes from './Product.module.css';
 
 function Product({name, description, image}) {
     return (
-        <li>
-            <div>
+        <li className={classes.item}>
+            <div className={classes.image}>
                 <img src={image} alt={name}/>
             </div>
-            <div>
+            <div className={classes.content}>
                 <h3>{name}</h3>
                 <p>{description}</p>
             </div>
