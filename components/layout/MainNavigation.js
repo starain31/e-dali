@@ -8,10 +8,10 @@ function MainNavigation() {
             <nav>
                 <ul>
                     <li>
-                        <Link href='/'>Products list</Link>
+                        <Link href='/'>ProductsList</Link>
                     </li>
                     <li>
-                        <Link href='/'>Wishlist</Link>
+                        <Link href='/'>WishList</Link>
                     </li>
                 </ul>
             </nav>
