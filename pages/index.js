@@ -4,6 +4,7 @@ import Products from "./products/products";
 
 const products = [
     {
+        id: 1,
         name: "Un Chien Andalou (film still)",
         description: "One of the most acclaimed films in cinema history, Un Chien Andalou (An Andalusian Dog) (1929) is a short silent surrealist film by Spanish director Luis Buñuel and artist Salvador Dalí. Following the principles of Surrealism, the film does not have a narrative in the conventional sense.",
         image: 'https://uploads7.wikiart.org/images/salvador-dali/un-chien-andalou-film-still-1928.jpg'

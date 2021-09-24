@@ -4,7 +4,7 @@ export default function Products({products}) {
     return <ul className={styles.grid}>
         {
             products.map((product) =>
-                <li className={styles.card}>
+                <li className={styles.card} key={product.id}>
                     <div>
                         <h1>{product.name}</h1>
                         <p>{product.description}</p>
