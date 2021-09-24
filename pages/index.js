@@ -1,5 +1,4 @@
 import ProductList from "../components/products/ProductList";
-import Layout from "../components/layout/Layout";
 
 const DUMMY_PRODUCTS = [
     {
@@ -17,6 +16,5 @@ const DUMMY_PRODUCTS = [
 ];
 
 export default function Home() {
-    return <Layout><ProductList products={DUMMY_PRODUCTS}/></Layout>;
-
+    return <ProductList products={DUMMY_PRODUCTS}/>;
 }
