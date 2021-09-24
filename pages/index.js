@@ -1,6 +1,5 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import ProductList from "../components/ProductList";
+import ProductList from "../components/products/ProductList";
+import Layout from "../components/layout/Layout";
 
 const DUMMY_PRODUCTS = [
     {
@@ -18,15 +17,6 @@ const DUMMY_PRODUCTS = [
 ];
 
 export default function Home() {
-    return (
-        <div className={styles.container}>
-            <Head>
-                <title>E-Dali</title>
-                <meta name="description" content="Take me, I am the drug; take me, I am hallucinogenic."/>
-                <link rel="icon" href={"/favicon.ico"}/>
-            </Head>
+    return <Layout><ProductList products={DUMMY_PRODUCTS}/></Layout>;
 
-            <ProductList products={DUMMY_PRODUCTS}/>
-        </div>
-    )
 }

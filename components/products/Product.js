@@ -1,5 +1,5 @@
 import classes from './Product.module.css';
-import Card from "./ui/Card";
+import Card from "../ui/Card";
 
 function Product({name, description, image}) {
     return (
