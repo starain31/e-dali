@@ -1,7 +1,8 @@
 import classes from './Product.module.css';
 import Card from "../ui/Card";
 
-function Product({name, description, image}) {
+function Product({name, description, image, ActionButton}) {
+
     return (
         <Card>
             <div className={classes.item}>
@@ -12,9 +13,9 @@ function Product({name, description, image}) {
                     <h3>{name}</h3>
                     <p>{description}</p>
                 </div>
-                <div className={classes.actions}>
-                    <button>ADD TO WISH LIST</button>
-                </div>
+                {
+                    ActionButton
+                }
             </div>
         </Card>
     );

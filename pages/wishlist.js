@@ -1,13 +1,13 @@
 import useSWR from 'swr'
 
-import ProductList from "../components/products/ProductList";
+import WishList from "../components/products/WishList";
 import {fetcher} from "../utility";
 
-export default function Wishlist() {
+export default function WishlistPage() {
     const { data, error } = useSWR('/api/wish-list', fetcher)
 
     if (error) return <div>failed to load</div>
     if (!data) return <div>loading...</div>
 
-    return <ProductList products={data.wishlist}/>;
+    return <WishList products={data.wishlist}/>;
 }

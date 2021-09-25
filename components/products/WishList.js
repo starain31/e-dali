@@ -1,17 +1,21 @@
 import classes from './ProductList.module.css';
 import productClass from './Product.module.css';
 import Product from "./Product";
+import {useState} from "react";
 
-function ProductList({products}) {
-    function adToWishList({id}) {
-        fetch('/api/add-to-wish-list', {
+function WishList({products}) {
+    const [wishlist, setWishlist] = useState(products);
+
+    function removeFromWishList({id}) {
+        fetch('/api/remove-from-wish-list', {
             method: 'POST',
             headers: {
                 "Content-Type": "Application/json"
             },
             body: JSON.stringify({id})
-        }).then(() => {
-            console.log(`Wishlist Successfully added.`)
+        }).then(r => r.json()).then(({wishlist}) => {
+            console.log(`Removed from Wishlist Successfully.`);
+            setWishlist(wishlist);
         }).catch((e) => {
             console.error(e);
         });
@@ -19,7 +23,7 @@ function ProductList({products}) {
 
     return (
         <ul className={classes.list}>{
-            products.map((product) => (
+            wishlist.map((product) => (
                 <li key={product.id}>
                     <Product
                         name={product.name}
@@ -27,7 +31,8 @@ function ProductList({products}) {
                         image={product.image}
                         ActionButton={
                             <div className={productClass.actions}>
-                                <button onClick={() => adToWishList({id: product.id})}>ADD TO WISH LIST</button>
+                                <button onClick={() => removeFromWishList({id: product.id})}>REMOVE FROM WISH LIST
+                                </button>
                             </div>
                         }
                     />
@@ -37,4 +42,4 @@ function ProductList({products}) {
     );
 }
 
-export default ProductList;
+export default WishList;

@@ -12,7 +12,6 @@ export async function getProduct() {
 export async function getWishList({username}) {
     await wishlist.read();
     await products.read();
-    console.log({username});
     return (wishlist.data[username] ?? []).map((productId) => products.data.find(p => p.id === productId));
 }
 
@@ -29,3 +28,18 @@ export async function getUser({username}) {
     return users.data[username];
 }
 
+export async function addToWishList({username, productId}) {
+    await wishlist.read();
+    wishlist.data[username] = new Set(wishlist.data[username] ?? []);
+    wishlist.data[username].add(productId);
+    wishlist.data[username] = [...wishlist.data[username]];
+    await wishlist.write();
+}
+
+export async function removeFromWishList({username, productId}) {
+    await wishlist.read();
+    wishlist.data[username] = new Set(wishlist.data[username] ?? []);
+    wishlist.data[username].delete(productId);
+    wishlist.data[username] = [...wishlist.data[username]];
+    await wishlist.write();
+}
