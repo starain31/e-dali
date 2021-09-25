@@ -1,15 +1,16 @@
 import {Low, JSONFile} from 'lowdb';
 
+const products = new Low(new JSONFile('db/products.json'));
 
-const products = new Low(new JSONFile('./products.json'));
+const wishlist = new Low(new JSONFile('db/wishlist.json'));
 
-const wishlist = new Low(new JSONFile('./wishlist.json'));
-
-export function getProduct() {
+export async function getProduct() {
+    await products.read();
     return products.data;
 }
 
-export function getWishList() {
+export async function getWishList() {
+    await wishlist.read();
     return wishlist.data;
 }
 
