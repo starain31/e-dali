@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 
 import ProductList from "../components/products/ProductList";
-import {fetcher} from "./api/utility";
+import {fetcher} from "../utility";
 
 export default function Home() {
     const { data, error } = useSWR('/api/products-list', fetcher)
