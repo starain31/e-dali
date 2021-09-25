@@ -1,24 +1,23 @@
 import {useState} from "react";
 import { useRouter } from 'next/router'
 
-
-export default function Signup() {
+export default function Signin() {
+    const router = useRouter();
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const router = useRouter();
 
-    function handleSignUp(e) {
+    function handleSignin(e) {
         e.preventDefault();
 
-        return fetch('/api/signup', {
+        fetch('/api/signin', {
             method: 'POST',
             headers: {
                 "Content-Type": "Application/json"
             },
             body: JSON.stringify({username, password})
         }).then(() => {
-            router.push('/signin');
+            router.push('/');
         }).catch((e) => {
             console.error(e);
         });
@@ -31,9 +30,9 @@ export default function Signup() {
                 <br/>
                 <input type={`password`} value={password} onChange={(e) => setPassword(e.target.value)}/>
                 <br/>
-                <button onClick={handleSignUp}>Sign Up</button>
+                <button onClick={handleSignin}>Sign In</button>
             </form>
         </div>
-    )
+    );
 
 }

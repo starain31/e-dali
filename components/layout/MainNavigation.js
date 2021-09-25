@@ -13,6 +13,9 @@ function MainNavigation() {
                     <li>
                         <Link href={'/wishlist'}>WishList</Link>
                     </li>
+                    <li>
+                        <Link href={'/signin'}>Sign In</Link>
+                    </li>
                 </ul>
             </nav>
         </header>
