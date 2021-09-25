@@ -4,7 +4,6 @@ import cookie from "js-cookie";
 import {useRouter} from "next/router";
 
 
-
 function MainNavigation() {
     const router = useRouter();
 
@@ -20,6 +19,7 @@ function MainNavigation() {
     return (
         <header className={classes.header}>
             <div className={classes.logo}>E-Dalí</div>
+            <div><b>{cookie.get('username')}</b></div>
             <nav>
                 <ul>
                     <li>
@@ -41,14 +41,9 @@ function MainNavigation() {
                         </li>
                     }
                     {
-                        <li>
-                            <b>{cookie.get('username')}</b>
-                        </li>
-                    }
-                    {
                         cookie.get('username') &&
-                        <li>
-                            <button onClick={signout}>Sign Out</button>
+                        <li onClick={signout}>
+                            <Link href={`/signin`}>Sign Out</Link>
                         </li>
                     }
                 </ul>
