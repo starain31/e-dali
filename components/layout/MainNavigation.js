@@ -11,7 +11,7 @@ function MainNavigation() {
                         <Link href='/'>ProductsList</Link>
                     </li>
                     <li>
-                        <Link href='/'>WishList</Link>
+                        <Link href={'/wishlist'}>WishList</Link>
                     </li>
                 </ul>
             </nav>
