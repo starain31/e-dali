@@ -1,5 +1,6 @@
 import {useState} from "react";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import cookie from 'js-cookie';
 
 export default function Signin() {
     const router = useRouter();
@@ -17,6 +18,7 @@ export default function Signin() {
             },
             body: JSON.stringify({username, password})
         }).then(() => {
+            cookie.set("username", username);
             router.push('/');
         }).catch((e) => {
             console.error(e);

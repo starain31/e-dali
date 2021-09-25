@@ -1,27 +1,15 @@
-import {getUser} from '../../db';
-import jwt from 'jsonwebtoken';
 import cookie from 'cookie';
-
-async function signin({username, password}) {
-    const user = await getUser({username, password});
-
-    if (!user || user.password !== password) {
-        throw 'Invalid username or password';
-    }
-
-    return jwt.sign({username}, "I don't do drugs. I am drugs.");
-}
 
 export default async function handler(req, res) {
     try {
         switch (req.method) {
-            case "POST":
+            case "GET":
                 res.setHeader(
                     "Set-Cookie",
-                    cookie.serialize("token", await signin(req.body), {
+                    cookie.serialize("token", "", {
                         httpOnly: true,
-                        maxAge: 60 * 60,
                         sameSite: "strict",
+                        expires: new Date(0),
                         path: "/",
                     })
                 );
@@ -34,7 +22,7 @@ export default async function handler(req, res) {
         }
     } catch (e) {
         console.log(e);
-        return res.status(404).send({message: "Invalid username or password"});
+        return res.status(404).send({message: "Invalid Request"});
     }
 
 }

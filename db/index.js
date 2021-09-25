@@ -9,15 +9,17 @@ export async function getProduct() {
     return products.data;
 }
 
-export async function getWishList() {
+export async function getWishList({username}) {
     await wishlist.read();
-    return wishlist.data;
+    await products.read();
+    console.log({username});
+    return (wishlist.data[username] ?? []).map((productId) => products.data.find(p => p.id === productId));
 }
 
 export async function createUser({username, password}) {
     await users.read();
     users.data[username] = {
-        username,password
+        username, password
     };
     await users.write();
 }
