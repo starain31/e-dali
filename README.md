@@ -1,5 +1,5 @@
 # E-Dalí
-
+**Intelligence without ambition is a bird without wings**<br/>
 Buy [Salvador Dalí's](https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD) Artwork!
 
 ## Tasks 
@@ -22,4 +22,17 @@ Buy [Salvador Dalí's](https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD) Artwork
 `docker-compose up`
 
 ## Access
-`localhost:3000`
+`localhost:3000` <br/>
+To run in different port change the exposed port in `docker-compose.yml` file.
+
+## Sample User
+
+```
+email: "salvadordalí@earth.sun",
+password: "Gala Dalí",
+```
+
+## Caveat
+
+1. Wishlist page need a hard reload `Ctrl+Shift+R` for wishlist reflection.
+2. Couldn't able to write tests. Which I think is a must. But unfortunately fall short on that.
