@@ -10,8 +10,12 @@ function ProductList({products}) {
                 "Content-Type": "Application/json"
             },
             body: JSON.stringify({id})
-        }).then(() => {
-            console.log(`Wishlist Successfully added.`)
+        }).then((r) => {
+            if(r.status === 0) {
+                console.log(`Wishlist Successfully added.`)
+            } else {
+                console.log(`Wishlist Adding failed.`)
+            }
         }).catch((e) => {
             console.error(e);
         });
