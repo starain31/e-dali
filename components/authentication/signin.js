@@ -38,7 +38,7 @@ export default function Signin() {
                 <input type={`password`} value={password} onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <div className={classes.actions}>
-                <button onClick={handleSignin}>Sign Up</button>
+                <button onClick={handleSignin}>Sign In</button>
             </div>
         </div>
     </Card>
