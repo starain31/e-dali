@@ -1,10 +1,8 @@
 {
-  "Salvador Dalí": {
-    "username": "Salvador Dalí",
-    "password": "Gala Dalí"
-  },
-  "Sakib": {
-    "username": "Sakib",
-    "password": "munia"
+  "salvadordalí@earth.sun": {
+    "name": "Salvador Dalí",
+    "password": "Gala Dalí",
+    "email": "salvadordalí@earth.sun",
+    "phone": "000111904"
   }
 }
