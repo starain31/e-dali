@@ -18,7 +18,8 @@ function MainNavigation() {
 
     return (
         <header className={classes.header}>
-            <div className={classes.logo}>E-Dalí</div>
+            <Link className={classes.logo} href='/'>E-Dalí</Link>
+
             <div><b>{cookie.get('email')}</b></div>
             <nav>
                 <ul>
