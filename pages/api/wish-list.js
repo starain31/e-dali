@@ -1,4 +1,5 @@
-import {getWishList} from '../../db'
+import {getWishList} from '../../service/wishlist';
+
 import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {

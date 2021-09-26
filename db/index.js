@@ -37,11 +37,11 @@ export async function getUser({email}) {
     return users.data[email];
 }
 
-export async function addToWishList({username, productId}) {
+export async function addToWishList({email, productId}) {
     await wishlist.read();
-    wishlist.data[username] = new Set(wishlist.data[username] ?? []);
-    wishlist.data[username].add(productId);
-    wishlist.data[username] = [...wishlist.data[username]];
+    wishlist.data[email] = new Set(wishlist.data[email] ?? []);
+    wishlist.data[email].add(productId);
+    wishlist.data[email] = [...wishlist.data[email]];
     await wishlist.write();
 }
 
