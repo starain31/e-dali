@@ -27,9 +27,9 @@ export async function createUser({name, email, phone, password,}) {
     return users.data[email];
 }
 
-export async function getUser({username}) {
+export async function getUser({email}) {
     await users.read();
-    return users.data[username];
+    return users.data[email];
 }
 
 export async function addToWishList({username, productId}) {

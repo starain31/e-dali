@@ -3,24 +3,27 @@ import {signin} from "../../service/authentication/signin";
 
 export default async function handler(req, res) {
     try {
-        switch (req.method) {
-            case "POST":
+        if (req.method !== 'POST' && !req.body) {
+            res.status(404).send({message: 'Invalid request.'});
+        }
+
+        signin(req.body)
+            .then(function (token) {
                 res.setHeader(
                     "Set-Cookie",
-                    cookie.serialize("token", await signin(req.body), {
+                    cookie.serialize("token", token, {
                         httpOnly: true,
                         maxAge: 60 * 60,
                         sameSite: "strict",
                         path: "/",
                     })
                 );
-
-                res.statusCode = 200;
-                res.json({success: true});
-                break;
-            default:
-                res.status(404).send();
-        }
+                res.status(200).json({token});
+            })
+            .catch(function (e) {
+                console.error(e);
+                res.status(400).send({message: e});
+            })
     } catch (e) {
         console.log(e);
         return res.status(404).send({message: "Invalid username or password"});
