@@ -18,11 +18,8 @@ Buy [Salvador Dalí's](https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD) Artwork
 5. [X] Wishlist view
 6. [X] Search view
 
-## Install
-`npm install`
-
-## Run
-`npm run dev`
+## Install and Run
+`docker-compose up`
 
 ## Access
 `localhost:3000`
