@@ -7,7 +7,7 @@ import Card from "../ui/Card";
 export default function Signin() {
     const router = useRouter();
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     function handleSignin(e) {
@@ -18,9 +18,9 @@ export default function Signin() {
             headers: {
                 "Content-Type": "Application/json"
             },
-            body: JSON.stringify({username, password})
-        }).then(() => {
-            cookie.set("username", username);
+            body: JSON.stringify({email, password})
+        }).then(r => r.json()).then(({name}) => {
+            cookie.set("email", email);
             router.push('/');
         }).catch((e) => {
             console.error(e);
@@ -30,8 +30,8 @@ export default function Signin() {
     return (<Card>
         <div className={classes.form}>
             <div className={classes.control}>
-                <label>Username:</label>
-                <input type={`text`} value={username} onChange={(e) => setUsername(e.target.value)}/>
+                <label>Email:</label>
+                <input type={`text`} value={email} onChange={(e) => setEmail(e.target.value)}/>
             </div>
             <div className={classes.control}>
                 <label>Password:</label>

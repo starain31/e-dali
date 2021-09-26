@@ -20,7 +20,7 @@ export default function Signup() {
             headers: {
                 "Content-Type": "Application/json"
             },
-            body: JSON.stringify({username, password, phone})
+            body: JSON.stringify({name,email, password, phone})
         }).then(() => {
             router.push('/signin');
         }).catch((e) => {

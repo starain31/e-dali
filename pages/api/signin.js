@@ -7,7 +7,7 @@ export default async function handler(req, res) {
             res.status(404).send({message: 'Invalid request.'});
         }
 
-        signin(req.body)
+        return signin(req.body)
             .then(function (token) {
                 res.setHeader(
                     "Set-Cookie",
@@ -23,7 +23,7 @@ export default async function handler(req, res) {
             .catch(function (e) {
                 console.error(e);
                 res.status(400).send({message: e});
-            })
+            });
     } catch (e) {
         console.log(e);
         return res.status(404).send({message: "Invalid username or password"});

@@ -12,10 +12,11 @@ export async function getProduct({searchKey}) {
     return products.data;
 }
 
-export async function getWishList({username}) {
+export async function getWishList({email}) {
+    console.log({email});
     await wishlist.read();
     await products.read();
-    return (wishlist.data[username] ?? []).map((productId) => products.data.find(p => p.id === productId));
+    return (wishlist.data[email] ?? []).map((productId) => products.data.find(p => p.id === productId));
 }
 
 export async function createUser({name, email, phone, password,}) {
@@ -31,6 +32,7 @@ export async function createUser({name, email, phone, password,}) {
 }
 
 export async function getUser({email}) {
+
     await users.read();
     return users.data[email];
 }

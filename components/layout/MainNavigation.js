@@ -9,7 +9,7 @@ function MainNavigation() {
 
     async function signout() {
         await fetch('/api/signout').then(function () {
-            cookie.remove('username');
+            cookie.remove('email');
             router.push('/signin');
         }).catch(function (e) {
             console.error(e);
@@ -19,7 +19,7 @@ function MainNavigation() {
     return (
         <header className={classes.header}>
             <div className={classes.logo}>E-Dalí</div>
-            <div><b>{cookie.get('username')}</b></div>
+            <div><b>{cookie.get('email')}</b></div>
             <nav>
                 <ul>
                     <li>
@@ -29,19 +29,19 @@ function MainNavigation() {
                         <Link href={'/wishlist'}>WishList</Link>
                     </li>
                     {
-                        !!cookie.get('username') ||
+                        !!cookie.get('email') ||
                         <li>
                             <Link href={'/signup'}>Sign Up</Link>
                         </li>
                     }
                     {
-                        !!cookie.get('username') ||
+                        !!cookie.get('email') ||
                         <li>
                             <Link href={'/signin'}>Sign In</Link>
                         </li>
                     }
                     {
-                        cookie.get('username') &&
+                        cookie.get('email') &&
                         <li onClick={signout}>
                             <Link href={`/signin`}>Sign Out</Link>
                         </li>
