@@ -1,16 +1,5 @@
-import {getUser} from '../../db';
-import jwt from 'jsonwebtoken';
 import cookie from 'cookie';
-
-async function signin({username, password}) {
-    const user = await getUser({username, password});
-
-    if (!user || user.password !== password) {
-        throw 'Invalid username or password';
-    }
-
-    return jwt.sign({username}, "I don't do drugs. I am drugs.");
-}
+import {signin} from "../../service/authentication/signin";
 
 export default async function handler(req, res) {
     try {
