@@ -45,10 +45,10 @@ export async function addToWishList({email, productId}) {
     await wishlist.write();
 }
 
-export async function removeFromWishList({username, productId}) {
+export async function removeFromWishList({email, productId}) {
     await wishlist.read();
-    wishlist.data[username] = new Set(wishlist.data[username] ?? []);
-    wishlist.data[username].delete(productId);
-    wishlist.data[username] = [...wishlist.data[username]];
+    wishlist.data[email] = new Set(wishlist.data[email] ?? []);
+    wishlist.data[email].delete(productId);
+    wishlist.data[email] = [...wishlist.data[email]];
     await wishlist.write();
 }

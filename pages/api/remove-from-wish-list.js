@@ -1,15 +1,14 @@
-import {getWishList, removeFromWishList} from '../../db';
+import {getWishList, removeFromWishList} from '../../service/wishlist';
+import jwt from "jsonwebtoken";
 
 export default async function handler(req, res) {
     try {
         if (req.method === 'POST' && req.body) {
             const productId = req.body.id;
-            const username = req.cookies.username;
+            const {email} = jwt.verify(req.cookies.token, "I don't do drugs. I am drugs.");
 
-            await removeFromWishList({productId, username});
-            // return res.status(200).json({message: "Successfully removed from wishlist"});
-            return res.status(200).json({wishlist: await getWishList({username})});
-
+            await removeFromWishList({productId, email});
+            return res.status(200).json({wishlist: await getWishList({email})});
         }
 
         res.status(403).json({message: 'Invalid request'});
