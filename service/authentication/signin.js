@@ -8,5 +8,5 @@ export async function signin({email, password}) {
         throw 'Invalid username or password';
     }
 
-    return jwt.sign({...user, password: undefined}, "I don't do drugs. I am drugs.");
+    return jwt.sign({...user, password: undefined}, "process.env.JWT_SECREET");
 }

@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
     try {
-        const {email} = jwt.verify(req.cookies.token, "I don't do drugs. I am drugs.");
+        const {email} = jwt.verify(req.cookies.token, "process.env.JWT_SECREET");
 
         res.status(200).json({wishlist: await getWishList({email})});
 

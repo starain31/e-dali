@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     try {
         if (req.method === 'POST' && req.body) {
             const productId = req.body.id;
-            const {email} = jwt.verify(req.cookies.token, "I don't do drugs. I am drugs.");
+            const {email} = jwt.verify(req.cookies.token, "process.env.JWT_SECREET");
 
             if (email && productId) {
                 await addToWishList({productId, email});
