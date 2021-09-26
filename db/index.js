@@ -7,7 +7,7 @@ const users = new Low(new JSONFile('db/users.json'));
 export async function getProduct({searchKey}) {
     await products.read();
     if(searchKey) {
-        return products.data.filter((p) => p.name.includes(searchKey));
+        return products.data.filter((p) => p.name.toLowerCase().includes(searchKey.toLowerCase()));
     }
     return products.data;
 }

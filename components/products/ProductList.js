@@ -36,6 +36,7 @@ function ProductList({products}) {
             <Card>
                 <div className={classes.form}>
                     <div className={classes.control}>
+                        <label>Search: </label>
                         <input type={`text`} onChange={handleSearch}/>
                     </div>
                 </div>
