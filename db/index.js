@@ -15,12 +15,16 @@ export async function getWishList({username}) {
     return (wishlist.data[username] ?? []).map((productId) => products.data.find(p => p.id === productId));
 }
 
-export async function createUser({username, password, phone}) {
+export async function createUser({name, email, phone, password,}) {
     await users.read();
-    users.data[username] = {
-        username, password, phone
+    if(users.data[email]) {
+        throw {message: 'email exists.'}
+    }
+    users.data[email] = {
+        name, password, phone, email, id: Object.keys(users.data).length
     };
     await users.write();
+    return users.data[email];
 }
 
 export async function getUser({username}) {
