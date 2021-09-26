@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "name": "Un Chien Andalou",
-    "description": "One of the most acclaimed films in cinema history, Un Chien Andalou (An Andalusian Dog) (1929) is a short silent surrealist film by Spanish director Luis Buñuel and artist Salvador Dalí.",
-    "image": "https://uploads7.wikiart.org/images/salvador-dali/un-chien-andalou-film-still-1928.jpg"
+    "name": "The Figueres Fair",
+    "description": "A work of great chromatism that portrays the fairs of Figueres, which are held at the beginning of May, around the 3rd, the festival of the Holy Cross.",
+    "image": "https://www.salvador-dali.org/media/upload/cache/i0172_800.jpg"
   },
   {
     "id": 2,
@@ -16,5 +16,18 @@
     "name": "The Elephants",
     "description": "The elephant is a recurring theme in the works of Dalí, first appearing in his 1944 work Dream Caused by the Flight of a Bee Around a Pomegranate a Second Before Awakening, and also in The Temptation of Saint Anthony and Swans Reflecting Elephants.",
     "image": "https://upload.wikimedia.org/wikipedia/en/4/43/Dali_Elephants.jpg"
+  },
+  {
+    "id": 4,
+    "name":"Enigmatic Elements in a Landscape",
+    "description": "The “enigmatic elements” that appear in this work are assembled beneath a sky notable for its special, intense light. The main figure is that of the painter Vermeer of Delft, whom we see in the central part of the work.",
+    "image": "https://www.salvador-dali.org/media/upload/cache/elementsenigmaticsenunpaisatge_145_20_2091_480.jpg"
+
+  },
+  {
+    "id": 5,
+    "name": "Un Chien Andalou",
+    "description": "One of the most acclaimed films in cinema history, Un Chien Andalou (An Andalusian Dog) (1929) is a short silent surrealist film by Spanish director Luis Buñuel and artist Salvador Dalí.",
+    "image": "https://uploads7.wikiart.org/images/salvador-dali/un-chien-andalou-film-still-1928.jpg"
   }
 ]
