@@ -18,6 +18,11 @@ Buy [Salvador Dalí's](https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD) Artwork
 5. [X] Wishlist view
 6. [X] Search view
 
-## Run
+## Install
+`npm install`
 
-`RUN INSTRUCTION`
+## Run
+`npm run dev`
+
+## Access
+`localhost:3000`
