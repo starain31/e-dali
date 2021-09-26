@@ -16,7 +16,7 @@ Buy [Salvador Dalí's](https://en.wikipedia.org/wiki/Salvador_Dal%C3%AD) Artwork
 3. [X] Header view
 4. [X] Products list view
 5. [X] Wishlist view
-6. [ ] Search view
+6. [X] Search view
 
 ## Run
 
