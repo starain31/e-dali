@@ -1,7 +1,7 @@
 import {createUser} from '../../db'
 
-async function signup({username, password}) {
-    await createUser({username, password});
+async function signup({username, password, phone}) {
+    await createUser({username, password, phone});
 }
 
 export default async function handler(req, res) {

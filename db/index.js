@@ -15,10 +15,10 @@ export async function getWishList({username}) {
     return (wishlist.data[username] ?? []).map((productId) => products.data.find(p => p.id === productId));
 }
 
-export async function createUser({username, password}) {
+export async function createUser({username, password, phone}) {
     await users.read();
     users.data[username] = {
-        username, password
+        username, password, phone
     };
     await users.write();
 }
